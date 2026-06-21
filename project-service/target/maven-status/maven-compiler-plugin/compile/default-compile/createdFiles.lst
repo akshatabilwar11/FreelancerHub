@@ -1,0 +1,13 @@
+com\freelencerhub\project\config\SwaggerConfig.class
+com\freelencerhub\project\dto\UserDTO.class
+com\freelencerhub\project\repository\ProjectRepository.class
+com\freelencerhub\project\controller\ProjectController.class
+com\freelencerhub\project\entity\Project.class
+com\freelencerhub\project\client\PaymentClient.class
+com\freelencerhub\project\dto\NotificationDTO.class
+com\freelencerhub\project\service\ProjectService.class
+com\freelencerhub\project\ProjectServiceApplication.class
+com\freelencerhub\project\client\UserClient.class
+com\freelencerhub\project\dto\ProjectDTO.class
+com\freelencerhub\project\dto\PaymentDTO.class
+com\freelencerhub\project\client\NotificationClient.class

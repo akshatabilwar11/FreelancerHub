@@ -1,0 +1,177 @@
+.project-details-page {
+  padding: 2rem 0 5rem;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.back-btn:hover {
+  color: var(--primary-color);
+  transform: translateX(-4px);
+}
+
+.project-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+}
+
+.project-info-card {
+  padding: 2.5rem;
+}
+
+.project-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-tag {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.project-posted {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.project-title-large {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.project-stats-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.meta-stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meta-stat svg {
+  color: var(--accent-color);
+}
+
+.meta-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.1rem;
+}
+
+.meta-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.project-description-section h3,
+.project-skills-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.project-description-section p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-skills-section {
+  margin-top: 2.5rem;
+}
+
+/* Sidebar */
+.project-details-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bid-card, .client-card {
+  padding: 1.75rem;
+}
+
+.bid-card h3, .client-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.bid-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+}
+
+.client-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.client-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.success-message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.success-message p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .project-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

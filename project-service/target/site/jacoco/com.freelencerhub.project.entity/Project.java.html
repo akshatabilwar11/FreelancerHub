@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Project.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.project.entity</a> &gt; <span class="el_source">Project.java</span></div><h1>Project.java</h1><pre class="source lang-java linenums">package com.freelencerhub.project.entity;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = &quot;projects&quot;)
+<span class="pc bpc" id="L14" title="40 of 70 branches missed.">@Data</span>
+<span class="fc" id="L15">@NoArgsConstructor</span>
+<span class="fc" id="L16">@AllArgsConstructor</span>
+public class Project {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="fc" id="L20">    private Long id;</span>
+
+    @NotBlank(message = &quot;Title is required&quot;)
+<span class="fc" id="L23">    private String title;</span>
+
+    @NotBlank(message = &quot;Description is required&quot;)
+<span class="fc" id="L26">    private String description;</span>
+
+    @NotNull(message = &quot;Budget is required&quot;)
+    @Min(value = 0, message = &quot;Budget must be a positive value&quot;)
+<span class="fc" id="L30">    private Double budget;</span>
+
+    @NotNull(message = &quot;Client ID is required&quot;)
+<span class="fc" id="L33">    private Long clientId;</span>
+
+<span class="fc" id="L35">    private Long freelancerId;</span>
+
+<span class="fc" id="L37">    @Column(nullable = false)</span>
+<span class="fc" id="L38">    private String status = &quot;PENDING&quot;;</span>
+
+    @Column(name = &quot;created_at&quot;, updatable = false)
+<span class="fc" id="L41">    private java.time.LocalDateTime createdAt;</span>
+
+    @PrePersist
+    protected void onCreate() {
+<span class="fc" id="L45">        this.createdAt = java.time.LocalDateTime.now();</span>
+<span class="fc" id="L46">    }</span>
+
+    // Constructor for tests
+<span class="fc" id="L49">    public Project(Long id, String title, String description, Double budget, Long clientId) {</span>
+<span class="fc" id="L50">        this.id = id;</span>
+<span class="fc" id="L51">        this.title = title;</span>
+<span class="fc" id="L52">        this.description = description;</span>
+<span class="fc" id="L53">        this.budget = budget;</span>
+<span class="fc" id="L54">        this.clientId = clientId;</span>
+<span class="fc" id="L55">        this.status = &quot;PENDING&quot;;</span>
+<span class="fc" id="L56">        this.createdAt = java.time.LocalDateTime.now();</span>
+<span class="fc" id="L57">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+api-gateway,com.freelencerhub.gateway.filter,AuthenticationFilter,88,11,8,0,18,5,6,2,2,2
+api-gateway,com.freelencerhub.gateway.filter,RouteValidator,0,69,0,0,0,7,0,4,0,4
+api-gateway,com.freelencerhub.gateway.config,SwaggerConfig,0,41,0,0,0,13,0,3,0,3
+api-gateway,com.freelencerhub.gateway,ApiGatewayApplication,5,3,0,0,2,1,1,1,1,1
+api-gateway,com.freelencerhub.gateway.util,JwtUtil,35,20,6,0,5,5,4,3,1,3

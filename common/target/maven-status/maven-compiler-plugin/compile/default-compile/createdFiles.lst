@@ -1,0 +1,6 @@
+com\freelencerhub\common\logging\LoggingAspect.class
+com\freelencerhub\common\event\PaymentEvent.class
+com\freelencerhub\common\exception\ErrorResponse$ErrorResponseBuilder.class
+com\freelencerhub\common\exception\GlobalExceptionHandler.class
+com\freelencerhub\common\exception\ErrorResponse.class
+com\freelencerhub\common\event\ProjectEvent.class

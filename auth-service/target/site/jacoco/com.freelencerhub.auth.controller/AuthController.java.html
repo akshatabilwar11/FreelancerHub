@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.auth.controller</a> &gt; <span class="el_source">AuthController.java</span></div><h1>AuthController.java</h1><pre class="source lang-java linenums">package com.freelencerhub.auth.controller;
+
+import com.freelencerhub.auth.security.JwtUtil;
+import com.freelencerhub.auth.dto.UserDTO;
+import com.freelencerhub.auth.dto.AuthRequest;
+import com.freelencerhub.auth.dto.OtpRequest;
+import com.freelencerhub.auth.dto.ResetPasswordRequest;
+import com.freelencerhub.auth.model.Role;
+import com.freelencerhub.auth.model.User;
+import com.freelencerhub.auth.repository.RoleRepository;
+import com.freelencerhub.auth.repository.UserRepository;
+import com.freelencerhub.auth.service.EmailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.Optional;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping(&quot;/auth&quot;)
+public class AuthController {
+
+    private final AuthenticationManager authManager;
+    private final UserRepository userRepo;
+    private final RoleRepository roleRepo;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
+    private final EmailService emailService;
+
+    @Value(&quot;${admin.verification.code:SECRET123}&quot;)
+    private String adminVerificationCode;
+
+    private final RestTemplate restTemplate;
+
+    private static final String ERROR_KEY = &quot;error&quot;;
+    private static final String MSG_KEY = &quot;msg&quot;;
+
+<span class="fc" id="L50">    private static final Pattern PASSWORD_PATTERN = </span>
+<span class="fc" id="L51">            Pattern.compile(&quot;^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&amp;+=!]).{8,}$&quot;);</span>
+
+    @Autowired
+<span class="fc" id="L54">    public AuthController(AuthenticationManager authManager, UserRepository userRepo, RoleRepository roleRepo, PasswordEncoder passwordEncoder, JwtUtil jwtUtil, EmailService emailService, RestTemplate restTemplate) {</span>
+<span class="fc" id="L55">        this.authManager = authManager;</span>
+<span class="fc" id="L56">        this.userRepo = userRepo;</span>
+<span class="fc" id="L57">        this.roleRepo = roleRepo;</span>
+<span class="fc" id="L58">        this.passwordEncoder = passwordEncoder;</span>
+<span class="fc" id="L59">        this.jwtUtil = jwtUtil;</span>
+<span class="fc" id="L60">        this.emailService = emailService;</span>
+<span class="fc" id="L61">        this.restTemplate = restTemplate;</span>
+<span class="fc" id="L62">    }</span>
+
+    @PostMapping(&quot;/register&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; register(@Valid @RequestBody AuthRequest request) {
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (userRepo.findByEmail(request.getEmail()).isPresent()) {</span>
+<span class="fc" id="L67">            return ResponseEntity.badRequest().body(Collections.singletonMap(ERROR_KEY, &quot;Email already registered!&quot;));</span>
+        }
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (!PASSWORD_PATTERN.matcher(request.getPassword()).matches()) {</span>
+<span class="fc" id="L71">            return ResponseEntity.badRequest().body(Collections.singletonMap(ERROR_KEY,</span>
+                    &quot;Password must be at least 8 letters with upper, lower, number, and special character.&quot;));
+        }
+
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">        String requestedRole = (request.getRole() != null) ? request.getRole().toUpperCase() : &quot;USER&quot;;</span>
+<span class="fc" id="L76">        Role userRole = roleRepo.findByName(requestedRole)</span>
+<span class="fc" id="L77">                .orElseGet(() -&gt; roleRepo.save(new Role(null, requestedRole)));</span>
+
+<span class="fc" id="L79">        User newUser = new User();</span>
+<span class="fc" id="L80">        newUser.setName(request.getName());</span>
+<span class="fc" id="L81">        newUser.setEmail(request.getEmail());</span>
+<span class="fc" id="L82">        newUser.setPassword(passwordEncoder.encode(request.getPassword()));</span>
+<span class="fc" id="L83">        newUser.setRoles(Collections.singleton(userRole));</span>
+
+<span class="fc" id="L85">        userRepo.save(newUser);</span>
+
+        // Sync with User Service
+        try {
+<span class="fc" id="L89">            Map&lt;String, Object&gt; userSyncData = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L90">            userSyncData.put(&quot;name&quot;, newUser.getName());</span>
+<span class="fc" id="L91">            userSyncData.put(&quot;email&quot;, newUser.getEmail());</span>
+<span class="fc" id="L92">            userSyncData.put(&quot;role&quot;, requestedRole);</span>
+<span class="fc" id="L93">            userSyncData.put(&quot;trustScore&quot;, 85);</span>
+<span class="fc" id="L94">            restTemplate.postForObject(&quot;http://user-service/users&quot;, userSyncData, Map.class);</span>
+<span class="nc" id="L95">        } catch (Exception e) {</span>
+<span class="nc" id="L96">            System.err.println(&quot;Failed to sync user with user-service: &quot; + e.getMessage());</span>
+<span class="fc" id="L97">        }</span>
+
+<span class="fc" id="L99">        return ResponseEntity.status(HttpStatus.CREATED)</span>
+<span class="fc" id="L100">                .body(Collections.singletonMap(MSG_KEY, &quot;User registered successfully!&quot;));</span>
+    }
+
+    @PostMapping(&quot;/login&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; login(@Valid @RequestBody AuthRequest request) {
+        try {
+<span class="fc" id="L106">            authManager.authenticate(</span>
+                    new UsernamePasswordAuthenticationToken(
+<span class="fc" id="L108">                            request.getEmail(), request.getPassword()</span>
+                    )
+            );
+<span class="fc" id="L111">        } catch (BadCredentialsException ex) {</span>
+<span class="fc" id="L112">            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)</span>
+<span class="fc" id="L113">                    .body(Collections.singletonMap(ERROR_KEY, &quot;Invalid email or password.&quot;));</span>
+<span class="fc" id="L114">        }</span>
+
+<span class="fc" id="L116">        User user = userRepo.findByEmail(request.getEmail())</span>
+<span class="fc" id="L117">                .orElseThrow(() -&gt; new RuntimeException(&quot;User not found&quot;));</span>
+
+<span class="fc" id="L119">        String jwt = jwtUtil.generateToken(user);</span>
+
+<span class="fc" id="L121">        return ResponseEntity.ok(Collections.singletonMap(&quot;token&quot;, jwt));</span>
+    }
+
+    @GetMapping(&quot;/profile&quot;)
+    public ResponseEntity&lt;UserDTO&gt; getProfile(@RequestHeader(&quot;Authorization&quot;) String authorizationHeader) {
+<span class="pc bpc" id="L126" title="1 of 4 branches missed.">        if (authorizationHeader == null || !authorizationHeader.startsWith(&quot;Bearer &quot;)) {</span>
+<span class="fc" id="L127">            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();</span>
+        }
+
+<span class="fc" id="L130">        String jwt = authorizationHeader.substring(7);</span>
+<span class="fc" id="L131">        String email = jwtUtil.extractUsername(jwt);</span>
+
+<span class="fc" id="L133">        User user = userRepo.findByEmail(email)</span>
+<span class="fc" id="L134">                .orElseThrow(() -&gt; new RuntimeException(&quot;User not found&quot;));</span>
+
+<span class="fc" id="L136">        UserDTO userDTO = new UserDTO(</span>
+<span class="fc" id="L137">                user.getUserId(),</span>
+<span class="fc" id="L138">                user.getName(),</span>
+<span class="fc" id="L139">                user.getEmail(),</span>
+<span class="fc" id="L140">                user.getRoles().stream().map(Role::getName).collect(Collectors.toList())</span>
+        );
+
+<span class="fc" id="L143">        return ResponseEntity.ok(userDTO);</span>
+    }
+
+    @GetMapping(&quot;/users&quot;)
+    public ResponseEntity&lt;List&lt;UserDTO&gt;&gt; viewAllUsers() {
+<span class="fc" id="L148">        List&lt;User&gt; users = userRepo.findAll();</span>
+
+<span class="fc" id="L150">        List&lt;UserDTO&gt; dtos = users.stream()</span>
+<span class="fc" id="L151">                .map(user -&gt; new UserDTO(</span>
+<span class="fc" id="L152">                        user.getUserId(),</span>
+<span class="fc" id="L153">                        user.getName(),</span>
+<span class="fc" id="L154">                        user.getEmail(),</span>
+<span class="fc" id="L155">                        user.getRoles().stream().map(Role::getName).collect(Collectors.toList())</span>
+                ))
+<span class="fc" id="L157">                .collect(Collectors.toList());</span>
+
+<span class="fc" id="L159">        return ResponseEntity.ok(dtos);</span>
+    }
+
+    @GetMapping(&quot;/users/{id}&quot;)
+    public ResponseEntity&lt;UserDTO&gt; getUserById(@PathVariable Long id) {
+<span class="fc" id="L164">        Optional&lt;User&gt; optionalUser = userRepo.findById(id);</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">        if (optionalUser.isPresent()) {</span>
+<span class="fc" id="L166">            User user = optionalUser.get();</span>
+<span class="fc" id="L167">            UserDTO userDTO = new UserDTO(</span>
+<span class="fc" id="L168">                    user.getUserId(),</span>
+<span class="fc" id="L169">                    user.getName(),</span>
+<span class="fc" id="L170">                    user.getEmail(),</span>
+<span class="fc" id="L171">                    user.getRoles().stream().map(Role::getName).collect(Collectors.toList())</span>
+            );
+<span class="fc" id="L173">            return ResponseEntity.ok(userDTO);</span>
+        } else {
+<span class="fc" id="L175">            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</span>
+        }
+    }
+
+    @DeleteMapping(&quot;/users/{id}&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; deleteUser(@PathVariable Long id) {
+<span class="fc" id="L181">        Optional&lt;User&gt; optionalUser = userRepo.findById(id);</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        if (optionalUser.isPresent()) {</span>
+<span class="fc" id="L183">            userRepo.delete(optionalUser.get());</span>
+<span class="fc" id="L184">            return ResponseEntity.ok(Collections.singletonMap(MSG_KEY, &quot;User deleted successfully!&quot;));</span>
+        } else {
+<span class="fc" id="L186">            return ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L187">                    .body(Collections.singletonMap(ERROR_KEY, &quot;User not found.&quot;));</span>
+        }
+    }
+
+    @PutMapping(&quot;/users/{id}&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; updateUser(@PathVariable Long id, @RequestBody UserDTO updatedUser) {
+<span class="fc" id="L193">        Optional&lt;User&gt; optionalUser = userRepo.findById(id);</span>
+<span class="fc bfc" id="L194" title="All 2 branches covered.">        if (optionalUser.isPresent()) {</span>
+<span class="fc" id="L195">            User user = optionalUser.get();</span>
+<span class="fc" id="L196">            user.setName(updatedUser.getName());</span>
+<span class="fc" id="L197">            user.setEmail(updatedUser.getEmail());</span>
+<span class="fc" id="L198">            userRepo.save(user);</span>
+<span class="fc" id="L199">            return ResponseEntity.ok(Collections.singletonMap(MSG_KEY, &quot;User updated successfully!&quot;));</span>
+        } else {
+<span class="fc" id="L201">            return ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L202">                    .body(Collections.singletonMap(ERROR_KEY, &quot;User not found.&quot;));</span>
+        }
+    }
+
+    @PostMapping(&quot;/register-admin&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; registerAdmin(@RequestBody Map&lt;String, String&gt; body) {
+<span class="fc" id="L208">        String name = body.get(&quot;name&quot;);</span>
+<span class="fc" id="L209">        String email = body.get(&quot;email&quot;);</span>
+<span class="fc" id="L210">        String password = body.get(&quot;password&quot;);</span>
+<span class="fc" id="L211">        String verificationCode = body.get(&quot;code&quot;);</span>
+
+<span class="fc bfc" id="L213" title="All 2 branches covered.">        if (userRepo.findByEmail(email).isPresent()) {</span>
+<span class="fc" id="L214">            return ResponseEntity.badRequest().body(Collections.singletonMap(ERROR_KEY, &quot;Email already registered!&quot;));</span>
+        }
+
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        if (!PASSWORD_PATTERN.matcher(password).matches()) {</span>
+<span class="fc" id="L218">            return ResponseEntity.badRequest().body(Collections.singletonMap(ERROR_KEY,</span>
+                    &quot;Password must be at least 8 characters long, include upper/lowercase, number, and special character.&quot;));
+        }
+
+<span class="fc bfc" id="L222" title="All 2 branches covered.">        if (!adminVerificationCode.equals(verificationCode)) {</span>
+<span class="fc" id="L223">            return ResponseEntity.status(HttpStatus.FORBIDDEN)</span>
+<span class="fc" id="L224">                    .body(Collections.singletonMap(ERROR_KEY, &quot;Invalid admin verification code.&quot;));</span>
+        }
+
+<span class="fc" id="L227">        Role adminRole = roleRepo.findByName(&quot;ADMIN&quot;)</span>
+<span class="fc" id="L228">                .orElseGet(() -&gt; roleRepo.save(new Role(null, &quot;ADMIN&quot;)));</span>
+
+<span class="fc" id="L230">        User admin = new User();</span>
+<span class="fc" id="L231">        admin.setName(name);</span>
+<span class="fc" id="L232">        admin.setEmail(email);</span>
+<span class="fc" id="L233">        admin.setPassword(passwordEncoder.encode(password));</span>
+<span class="fc" id="L234">        admin.setRoles(Collections.singleton(adminRole));</span>
+
+<span class="fc" id="L236">        userRepo.save(admin);</span>
+
+<span class="fc" id="L238">        return ResponseEntity.status(HttpStatus.CREATED)</span>
+<span class="fc" id="L239">                .body(Collections.singletonMap(MSG_KEY, &quot;Admin registered successfully!&quot;));</span>
+    }
+
+    @PostMapping(&quot;/forgot-password&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; forgotPassword(@RequestBody Map&lt;String, String&gt; body) {
+        try {
+<span class="fc" id="L245">            String email = body.get(&quot;email&quot;);</span>
+<span class="fc" id="L246">            System.out.println(&quot;DEBUG: forgotPassword request for email: &quot; + email);</span>
+            
+<span class="fc" id="L248">            Optional&lt;User&gt; userOpt = userRepo.findByEmail(email);</span>
+            
+<span class="fc bfc" id="L250" title="All 2 branches covered.">            if (!userOpt.isPresent()) {</span>
+<span class="fc" id="L251">                System.out.println(&quot;DEBUG: User not found for email: &quot; + email);</span>
+<span class="fc" id="L252">                return ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L253">                        .body(Collections.singletonMap(ERROR_KEY, &quot;No account found with this email.&quot;));</span>
+            }
+
+<span class="fc" id="L256">            User user = userOpt.get();</span>
+            
+<span class="fc" id="L258">            String otp = String.format(&quot;%06d&quot;, new Random().nextInt(999999));</span>
+<span class="fc" id="L259">            user.setOtp(otp);</span>
+<span class="fc" id="L260">            user.setOtpExpiry(LocalDateTime.now().plusMinutes(10)); </span>
+<span class="fc" id="L261">            userRepo.save(user);</span>
+
+<span class="fc" id="L263">            emailService.sendOtpEmail(email, otp);</span>
+<span class="fc" id="L264">            System.out.println(&quot;&gt;&gt;&gt; SUCCESS: OTP for &quot; + email + &quot; is: &quot; + otp);</span>
+
+<span class="fc" id="L266">            return ResponseEntity.ok(Collections.singletonMap(MSG_KEY, &quot;OTP sent to your email.&quot;));</span>
+<span class="fc" id="L267">        } catch (Exception e) {</span>
+<span class="fc" id="L268">            System.err.println(&quot;ERROR in forgotPassword: &quot; + e.getMessage());</span>
+<span class="fc" id="L269">            e.printStackTrace();</span>
+<span class="fc" id="L270">            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span>
+<span class="fc" id="L271">                    .body(Collections.singletonMap(ERROR_KEY, &quot;Internal server error: &quot; + e.getMessage()));</span>
+        }
+    }
+
+    @PostMapping(&quot;/verify-otp&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; verifyOtp(@RequestBody OtpRequest request) {
+<span class="fc" id="L277">        Optional&lt;User&gt; userOpt = userRepo.findByEmail(request.getEmail());</span>
+        
+<span class="pc bpc" id="L279" title="1 of 2 branches missed.">        if (userOpt.isPresent()) {</span>
+<span class="fc" id="L280">            User user = userOpt.get();</span>
+<span class="pc bpc" id="L281" title="2 of 4 branches missed.">            if (user.getOtp() != null &amp;&amp; user.getOtp().equals(request.getOtp()) &amp;&amp; </span>
+<span class="fc bfc" id="L282" title="All 2 branches covered.">                user.getOtpExpiry().isAfter(LocalDateTime.now())) {</span>
+<span class="fc" id="L283">                return ResponseEntity.ok(Collections.singletonMap(MSG_KEY, &quot;OTP verified successfully!&quot;));</span>
+            }
+        }
+        
+<span class="fc" id="L287">        return ResponseEntity.status(HttpStatus.BAD_REQUEST)</span>
+<span class="fc" id="L288">                .body(Collections.singletonMap(ERROR_KEY, &quot;Invalid or expired OTP.&quot;));</span>
+    }
+
+    @PostMapping(&quot;/reset-password&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; resetPassword(@RequestBody ResetPasswordRequest request) {
+<span class="fc" id="L293">        Optional&lt;User&gt; userOpt = userRepo.findByEmail(request.getEmail());</span>
+        
+<span class="fc bfc" id="L295" title="All 2 branches covered.">        if (userOpt.isPresent()) {</span>
+<span class="fc" id="L296">            User user = userOpt.get();</span>
+<span class="pc bpc" id="L297" title="2 of 4 branches missed.">            if (user.getOtp() != null &amp;&amp; user.getOtp().equals(request.getOtp()) &amp;&amp; </span>
+<span class="pc bpc" id="L298" title="1 of 2 branches missed.">                user.getOtpExpiry().isAfter(LocalDateTime.now())) {</span>
+                
+<span class="fc bfc" id="L300" title="All 2 branches covered.">                if (!PASSWORD_PATTERN.matcher(request.getNewPassword()).matches()) {</span>
+<span class="fc" id="L301">                    return ResponseEntity.badRequest().body(Collections.singletonMap(ERROR_KEY,</span>
+                            &quot;Password must be at least 8 characters long with complexity.&quot;));
+                }
+
+<span class="fc" id="L305">                user.setPassword(passwordEncoder.encode(request.getNewPassword()));</span>
+<span class="fc" id="L306">                user.setOtp(null); </span>
+<span class="fc" id="L307">                user.setOtpExpiry(null);</span>
+<span class="fc" id="L308">                userRepo.save(user);</span>
+                
+<span class="fc" id="L310">                return ResponseEntity.ok(Collections.singletonMap(MSG_KEY, &quot;Password reset successfully!&quot;));</span>
+            }
+        }
+        
+<span class="fc" id="L314">        return ResponseEntity.status(HttpStatus.BAD_REQUEST)</span>
+<span class="fc" id="L315">                .body(Collections.singletonMap(ERROR_KEY, &quot;Invalid or expired OTP.&quot;));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,9 @@
+com\freelencerhub\project\repository\ProjectRepositoryTest.class
+com\freelencerhub\project\service\ProjectServiceTest.class
+com\freelencerhub\project\entity\ProjectEntityTest.class
+com\freelencerhub\project\controller\ProjectControllerTest.class
+com\freelencerhub\project\dto\ProjectDTOTest.class
+com\freelencerhub\project\ProjectServiceApplicationTests.class
+com\freelencerhub\project\config\SwaggerConfigTest.class
+com\freelencerhub\project\entity\ProjectTest.class
+com\freelencerhub\project\ProjectServiceApplicationTest.class

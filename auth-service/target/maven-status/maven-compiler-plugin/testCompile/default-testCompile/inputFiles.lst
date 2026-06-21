@@ -1,0 +1,9 @@
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\AuthServiceApplicationTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\config\SwaggerConfigTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\controller\AuthControllerTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\dto\DTOTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\model\ModelTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\security\CustomWebSecurityConfigTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\security\JwtUtilTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\security\UserDetailsServiceImplTest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\test\java\com\freelencerhub\auth\service\EmailServiceTest.java

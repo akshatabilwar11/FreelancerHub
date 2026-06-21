@@ -1,0 +1,15 @@
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\AuthServiceApplication.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\config\SwaggerConfig.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\controller\AuthController.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\dto\AuthRequest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\dto\OtpRequest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\dto\ResetPasswordRequest.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\dto\UserDTO.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\model\Role.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\model\User.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\repository\RoleRepository.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\repository\UserRepository.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\security\CustomWebSecurityConfig.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\security\JwtUtil.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\security\UserDetailsServiceImpl.java
+C:\Users\HP\FREELENCERHUB\auth-service\src\main\java\com\freelencerhub\auth\service\EmailService.java

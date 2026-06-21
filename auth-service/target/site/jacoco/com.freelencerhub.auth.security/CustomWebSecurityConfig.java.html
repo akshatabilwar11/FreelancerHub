@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomWebSecurityConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.auth.security</a> &gt; <span class="el_source">CustomWebSecurityConfig.java</span></div><h1>CustomWebSecurityConfig.java</h1><pre class="source lang-java linenums">package com.freelencerhub.auth.security;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.config.http.SessionCreationPolicy;
+
+@Configuration
+@EnableWebSecurity
+public class CustomWebSecurityConfig {
+
+    private final UserDetailsServiceImpl userDetailsService;
+
+<span class="fc" id="L20">    public CustomWebSecurityConfig(UserDetailsServiceImpl userDetailsService) {</span>
+<span class="fc" id="L21">        this.userDetailsService = userDetailsService;</span>
+<span class="fc" id="L22">    }</span>
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+<span class="fc" id="L26">        http</span>
+<span class="fc" id="L27">            .csrf().disable()</span>
+<span class="fc" id="L28">            .authorizeRequests()</span>
+<span class="fc" id="L29">                .antMatchers(</span>
+                    &quot;/auth/**&quot;, 
+                    &quot;/v3/api-docs&quot;, 
+                    &quot;/v3/api-docs/**&quot;, 
+                    &quot;/swagger-ui/**&quot;, 
+                    &quot;/swagger-ui.html&quot;
+<span class="fc" id="L35">                ).permitAll()</span>
+<span class="fc" id="L36">                .anyRequest().authenticated()</span>
+<span class="fc" id="L37">            .and()</span>
+<span class="fc" id="L38">            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);</span>
+<span class="fc" id="L39">        return http.build();</span>
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+<span class="fc" id="L44">        return http.getSharedObject(AuthenticationManagerBuilder.class)</span>
+<span class="fc" id="L45">                .userDetailsService(userDetailsService)</span>
+<span class="fc" id="L46">                .passwordEncoder(passwordEncoder())</span>
+<span class="fc" id="L47">                .and()</span>
+<span class="fc" id="L48">                .build();</span>
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+<span class="fc" id="L53">        return new BCryptPasswordEncoder();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,756 @@
+2026-06-21 17:37:46.050  INFO 15672 --- [main] c.f.user.UserServiceApplication          : Starting UserServiceApplication using Java 1.8.0_482 on DESKTOP-ED7SHVR with PID 15672 (C:\Users\HP\FREELENCERHUB\user-service\target\classes started by Akshata in C:\Users\HP\FREELENCERHUB\user-service)
+2026-06-21 17:37:46.069 DEBUG 15672 --- [main] c.f.user.UserServiceApplication          : Running with Spring Boot v2.7.18, Spring v5.3.31
+2026-06-21 17:37:46.072  INFO 15672 --- [main] c.f.user.UserServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-06-21 17:37:50.625  INFO 15672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-21 17:37:51.442  INFO 15672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 785 ms. Found 1 JPA repository interfaces.
+2026-06-21 17:37:52.511  INFO 15672 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2e0ddd1-c4d9-3b5a-b207-110f89c19a56
+2026-06-21 17:37:55.224  INFO 15672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2026-06-21 17:37:55.257  INFO 15672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-21 17:37:55.260  INFO 15672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-06-21 17:37:55.651  INFO 15672 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-21 17:37:55.652  INFO 15672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9435 ms
+2026-06-21 17:37:56.838  INFO 15672 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-21 17:37:57.033  INFO 15672 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-06-21 17:37:57.713  INFO 15672 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-06-21 17:37:58.209  INFO 15672 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-21 17:37:58.907  INFO 15672 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-21 17:37:58.975  INFO 15672 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2026-06-21 17:38:03.040  INFO 15672 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-06-21 17:38:03.102  INFO 15672 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-21 17:38:04.811  WARN 15672 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-21 17:38:08.819  INFO 15672 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-21 17:38:09.039  WARN 15672 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-21 17:38:09.121  INFO 15672 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-06-21 17:38:09.314  INFO 15672 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-06-21 17:38:09.408  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-06-21 17:38:09.421  INFO 15672 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 17:38:09.499  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-06-21 17:38:09.501  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-06-21 17:38:09.501  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-06-21 17:38:09.501  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-06-21 17:38:09.502  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-06-21 17:38:09.502  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-06-21 17:38:09.502  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-06-21 17:38:10.534  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-06-21 17:38:10.541  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-06-21 17:38:10.549  INFO 15672 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-21 17:38:10.560  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1782043690558 with initial instances count: 3
+2026-06-21 17:38:10.573  INFO 15672 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2026-06-21 17:38:10.575  INFO 15672 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1782043690575, current=UP, previous=STARTING]
+2026-06-21 17:38:10.583  INFO 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081: registering service...
+2026-06-21 17:38:10.627  INFO 15672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2026-06-21 17:38:10.628  INFO 15672 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2026-06-21 17:38:10.676  INFO 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - registration status: 204
+2026-06-21 17:38:11.269  INFO 15672 --- [main] c.f.user.UserServiceApplication          : Started UserServiceApplication in 28.751 seconds (JVM running for 33.343)
+2026-06-21 17:38:11.743  INFO 15672 --- [RMI TCP Connection(10)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-21 17:38:11.744  INFO 15672 --- [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-21 17:38:11.748  INFO 15672 --- [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-06-21 17:43:09.515  INFO 15672 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 17:48:09.533  INFO 15672 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 17:53:09.548  INFO 15672 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 17:58:09.554  INFO 15672 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 17:58:16.919  INFO 15672 --- [DiscoveryClient-HeartbeatExecutor-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:99)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
+	... 19 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 32 more
+
+2026-06-21 17:58:16.924  WARN 15672 --- [DiscoveryClient-HeartbeatExecutor-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2026-06-21 17:58:17.063  INFO 15672 --- [DiscoveryClient-CacheRefreshExecutor-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:145)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:155)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1135)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:1016)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1531)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1498)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
+	... 23 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 36 more
+
+2026-06-21 17:58:17.065  WARN 15672 --- [DiscoveryClient-CacheRefreshExecutor-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/delta": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2026-06-21 17:58:17.067  INFO 15672 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1135)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:1016)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1531)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1498)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+2026-06-21 17:58:21.055  INFO 15672 --- [DiscoveryClient-HeartbeatExecutor-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:99)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
+	... 20 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 33 more
+
+2026-06-21 17:58:21.057  WARN 15672 --- [DiscoveryClient-HeartbeatExecutor-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2026-06-21 17:58:21.090 ERROR 15672 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - was unable to send heartbeat!
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457) [eureka-client-1.10.18.jar:1.10.18]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_482]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_482]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_482]
+
+2026-06-21 17:58:36.183  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-06-21 17:58:36.241  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2026-06-21 17:58:36.243  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1782044916243, current=DOWN, previous=UP]
+2026-06-21 17:58:36.248  INFO 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081: registering service...
+2026-06-21 17:58:37.045  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-06-21 17:58:37.063  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2026-06-21 17:58:37.166  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-21 17:58:37.208  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-21 17:58:37.266  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-06-21 17:58:37.275  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2026-06-21 17:58:40.291  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2026-06-21 17:58:40.407  INFO 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
+	... 23 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 36 more
+
+2026-06-21 17:58:40.408  WARN 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/USER-SERVICE": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2026-06-21 17:58:40.410  WARN 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) [eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) [eureka-client-1.10.18.jar:1.10.18]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_482]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_482]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_482]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_482]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_482]
+
+2026-06-21 17:58:40.413  WARN 15672 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) [eureka-client-1.10.18.jar:1.10.18]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_482]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_482]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_482]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_482]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_482]
+
+2026-06-21 17:58:44.442  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:87)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1163)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1156)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1120)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1086)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1032)
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:276)
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117)
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54)
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237)
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468)
+	at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76)
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309)
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401)
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357)
+	at sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:834)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
+	... 78 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 91 more
+
+2026-06-21 17:58:44.444  WARN 15672 --- [RMI TCP Connection(38)-127.0.0.1] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2026-06-21 17:58:44.452 ERROR 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - de-registration failedCannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972) [eureka-client-1.10.18.jar:1.10.18]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948) [eureka-client-1.10.18.jar:1.10.18]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_482]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_482]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_482]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_482]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390) [spring-cloud-context-3.1.8.jar:3.1.8]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) [spring-cloud-context-3.1.8.jar:3.1.8]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1163) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1156) [spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1120) [spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1086) [spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174) [spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1032) [spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160) [spring-boot-2.7.18.jar:2.7.18]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_482]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_482]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_482]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_482]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72) [na:1.8.0_482]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_482]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_482]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_482]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_482]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:276) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252) [na:1.8.0_482]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819) [na:1.8.0_482]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) [na:1.8.0_482]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468) [na:1.8.0_482]
+	at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76) [na:1.8.0_482]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309) [na:1.8.0_482]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401) [na:1.8.0_482]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) [na:1.8.0_482]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_482]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_482]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_482]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_482]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) [na:1.8.0_482]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) [na:1.8.0_482]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) [na:1.8.0_482]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_482]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) [na:1.8.0_482]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573) [na:1.8.0_482]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:834) [na:1.8.0_482]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688) [na:1.8.0_482]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_482]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687) [na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_482]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_482]
+	at java.lang.Thread.run(Thread.java:750) ~[na:1.8.0_482]
+
+2026-06-21 17:58:44.479  INFO 15672 --- [RMI TCP Connection(38)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2026-06-21 18:01:38.317  INFO 13868 --- [main] c.f.user.UserServiceApplication          : Starting UserServiceApplication using Java 1.8.0_482 on DESKTOP-ED7SHVR with PID 13868 (C:\Users\HP\FREELENCERHUB\user-service\target\classes started by Akshata in C:\Users\HP\FREELENCERHUB\user-service)
+2026-06-21 18:01:38.334 DEBUG 13868 --- [main] c.f.user.UserServiceApplication          : Running with Spring Boot v2.7.18, Spring v5.3.31
+2026-06-21 18:01:38.336  INFO 13868 --- [main] c.f.user.UserServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-06-21 18:01:43.592  INFO 13868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-21 18:01:45.082  INFO 13868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1446 ms. Found 1 JPA repository interfaces.
+2026-06-21 18:01:46.206  INFO 13868 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2e0ddd1-c4d9-3b5a-b207-110f89c19a56
+2026-06-21 18:01:48.524  INFO 13868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2026-06-21 18:01:48.550  INFO 13868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-21 18:01:48.552  INFO 13868 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-06-21 18:01:48.994  INFO 13868 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-21 18:01:48.997  INFO 13868 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 10502 ms
+2026-06-21 18:01:50.390  INFO 13868 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-21 18:01:50.592  INFO 13868 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-06-21 18:01:51.223  INFO 13868 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-06-21 18:01:51.841  INFO 13868 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-21 18:01:52.386  INFO 13868 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-21 18:01:52.460  INFO 13868 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2026-06-21 18:01:55.265  INFO 13868 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-06-21 18:01:55.298  INFO 13868 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-21 18:01:56.747  WARN 13868 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-21 18:02:00.447  INFO 13868 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-21 18:02:00.691  WARN 13868 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-21 18:02:00.721  INFO 13868 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-06-21 18:02:00.964  INFO 13868 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-06-21 18:02:01.096  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-06-21 18:02:01.115  INFO 13868 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 18:02:01.239  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-06-21 18:02:01.240  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-06-21 18:02:01.241  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-06-21 18:02:01.241  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-06-21 18:02:01.242  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-06-21 18:02:01.242  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-06-21 18:02:01.243  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-06-21 18:02:02.047  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-06-21 18:02:02.056  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-06-21 18:02:02.066  INFO 13868 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-21 18:02:02.081  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1782045122078 with initial instances count: 5
+2026-06-21 18:02:02.092  INFO 13868 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2026-06-21 18:02:02.095  INFO 13868 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1782045122094, current=UP, previous=STARTING]
+2026-06-21 18:02:02.099  INFO 13868 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081: registering service...
+2026-06-21 18:02:02.160  INFO 13868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2026-06-21 18:02:02.162  INFO 13868 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2026-06-21 18:02:02.218  INFO 13868 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - registration status: 204
+2026-06-21 18:02:02.963  INFO 13868 --- [main] c.f.user.UserServiceApplication          : Started UserServiceApplication in 27.74 seconds (JVM running for 31.263)
+2026-06-21 18:02:03.694  INFO 13868 --- [RMI TCP Connection(10)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-21 18:02:03.695  INFO 13868 --- [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-21 18:02:03.698  INFO 13868 --- [RMI TCP Connection(10)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-21 18:07:01.285  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 18:11:28.015 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:28.058 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:29.262  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 1203 ms
+2026-06-21 18:11:29.283  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 1263 ms
+2026-06-21 18:11:29.393 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:29.393 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:29.418  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 23 ms
+2026-06-21 18:11:29.424  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 31 ms
+2026-06-21 18:11:33.486 DEBUG 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:33.487 DEBUG 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:33.502  INFO 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 13 ms
+2026-06-21 18:11:33.503  INFO 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 16 ms
+2026-06-21 18:11:33.553 DEBUG 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:33.555 DEBUG 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:33.589  INFO 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 33 ms
+2026-06-21 18:11:33.590  INFO 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 35 ms
+2026-06-21 18:11:45.394 DEBUG 13868 --- [http-nio-8081-exec-5] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:45.397 DEBUG 13868 --- [http-nio-8081-exec-5] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:45.409  INFO 13868 --- [http-nio-8081-exec-5] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 10 ms
+2026-06-21 18:11:45.412  INFO 13868 --- [http-nio-8081-exec-5] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 16 ms
+2026-06-21 18:11:45.453 DEBUG 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:45.454 DEBUG 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:45.477  INFO 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 23 ms
+2026-06-21 18:11:45.481  INFO 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 27 ms
+2026-06-21 18:11:50.020 DEBUG 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:50.022 DEBUG 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:50.034  INFO 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 12 ms
+2026-06-21 18:11:50.037  INFO 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 16 ms
+2026-06-21 18:11:50.091 DEBUG 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:11:50.095 DEBUG 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:11:50.122  INFO 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 26 ms
+2026-06-21 18:11:50.124  INFO 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 32 ms
+2026-06-21 18:12:01.310  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 18:14:50.077 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:14:50.078 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:14:50.104  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 26 ms
+2026-06-21 18:14:50.107  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 30 ms
+2026-06-21 18:14:50.143 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 18:14:50.144 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 18:14:50.163  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 18 ms
+2026-06-21 18:14:50.166  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 22 ms
+2026-06-21 18:15:40.254 DEBUG 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.createUser() with argument[s] = [User(id=null, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85)]
+2026-06-21 18:15:40.255 DEBUG 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.createUser() with argument[s] = [User(id=null, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85)]
+2026-06-21 18:15:40.444  INFO 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.createUser() with result = User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85). Execution time: 188 ms
+2026-06-21 18:15:40.446  INFO 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.createUser() with result = UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85). Execution time: 191 ms
+2026-06-21 18:17:01.319  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 18:22:01.343  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 18:27:01.360  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 18:58:39.680  WARN 13868 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m16s674ms569µs300ns).
+2026-06-21 19:00:48.023  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:05:48.037  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:10:48.047  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:15:48.065  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:20:48.081  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:25:48.092  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:30:48.115  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:35:48.129  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:39:40.773 DEBUG 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.createUser() with argument[s] = [User(id=null, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]
+2026-06-21 19:39:40.777 DEBUG 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.createUser() with argument[s] = [User(id=null, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]
+2026-06-21 19:39:40.855  INFO 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.createUser() with result = User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85). Execution time: 77 ms
+2026-06-21 19:39:40.856  INFO 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.createUser() with result = UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85). Execution time: 81 ms
+2026-06-21 19:40:48.152  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:42:55.280 DEBUG 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 19:42:55.284 DEBUG 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 19:42:55.406  INFO 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 121 ms
+2026-06-21 19:42:55.424  INFO 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 142 ms
+2026-06-21 19:42:55.526 DEBUG 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 19:42:55.530 DEBUG 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 19:42:55.562  INFO 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 31 ms
+2026-06-21 19:42:55.564  INFO 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 34 ms
+2026-06-21 19:43:27.826 DEBUG 13868 --- [http-nio-8081-exec-9] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 19:43:27.828 DEBUG 13868 --- [http-nio-8081-exec-9] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 19:43:27.844  INFO 13868 --- [http-nio-8081-exec-9] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 15 ms
+2026-06-21 19:43:27.847  INFO 13868 --- [http-nio-8081-exec-9] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 19 ms
+2026-06-21 19:43:27.910 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 19:43:27.913 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 19:43:27.945  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 31 ms
+2026-06-21 19:43:27.950  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 38 ms
+2026-06-21 19:45:48.160  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:50:48.170  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 19:55:48.210  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 20:00:48.227  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 20:03:39.334 DEBUG 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 20:03:39.340 DEBUG 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 20:03:39.451  INFO 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 110 ms
+2026-06-21 20:03:39.456  INFO 13868 --- [http-nio-8081-exec-2] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 117 ms
+2026-06-21 20:03:39.538 DEBUG 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 20:03:39.541 DEBUG 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 20:03:39.582  INFO 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 40 ms
+2026-06-21 20:03:39.583  INFO 13868 --- [http-nio-8081-exec-7] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 42 ms
+2026-06-21 20:05:48.243  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 20:07:34.576 DEBUG 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 20:07:34.577 DEBUG 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 20:07:34.614  INFO 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 36 ms
+2026-06-21 20:07:34.654  INFO 13868 --- [http-nio-8081-exec-4] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 77 ms
+2026-06-21 20:07:34.790 DEBUG 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 20:07:34.794 DEBUG 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 20:07:34.822  INFO 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 27 ms
+2026-06-21 20:07:34.825  INFO 13868 --- [http-nio-8081-exec-6] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 31 ms
+2026-06-21 20:07:37.948 DEBUG 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 20:07:37.950 DEBUG 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 20:07:37.962  INFO 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 12 ms
+2026-06-21 20:07:37.963  INFO 13868 --- [http-nio-8081-exec-8] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 15 ms
+2026-06-21 20:07:38.023 DEBUG 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getAllUsers() with argument[s] = []
+2026-06-21 20:07:38.034 DEBUG 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getAllUsers() with argument[s] = []
+2026-06-21 20:07:38.057  INFO 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getAllUsers() with result = [User(id=2, name=John Doe, email=john@example.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.476, trustScore=0), User(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, lastActive=2026-05-19T14:48:55.126, trustScore=0), User(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, lastActive=null, trustScore=0), User(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, lastActive=2026-05-11T00:47:37.264, trustScore=85), User(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, lastActive=null, trustScore=85), User(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, lastActive=2026-05-25T11:33:45.583, trustScore=85), User(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, lastActive=null, trustScore=85), User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85), User(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, lastActive=null, trustScore=85)]. Execution time: 18 ms
+2026-06-21 20:07:38.058  INFO 13868 --- [http-nio-8081-exec-10] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getAllUsers() with result = [UserDTO(id=2, name=John Doe, email=john@example.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=4, name=Akshata Bilwar, email=aksh@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=7, name=Harshita, email=harshitabilwar1@gmail.com, role=FREELANCER, online=false, trustScore=0), UserDTO(id=8, name=Priya, email=priya1@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=9, name=Keerthi, email=keerthi11@gmail.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=10, name=Kiran, email=kiran11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=11, name=Pavitra, email=pavitra11@gamil.com, role=CLIENT, online=false, trustScore=85), UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=false, trustScore=85), UserDTO(id=13, name=Anushree, email=anu11@gmail.com, role=CLIENT, online=false, trustScore=85)]. Execution time: 24 ms
+2026-06-21 20:08:53.275 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getUserById() with argument[s] = [12]
+2026-06-21 20:08:53.284 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getUserById() with argument[s] = [12]
+2026-06-21 20:08:53.532  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getUserById() with result = Optional[User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=null, trustScore=85)]. Execution time: 248 ms
+2026-06-21 20:08:53.541 DEBUG 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.createUser() with argument[s] = [User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=2026-06-21T20:08:53.538, trustScore=85)]
+2026-06-21 20:08:53.751  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.createUser() with result = User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=2026-06-21T20:08:53.538, trustScore=85). Execution time: 210 ms
+2026-06-21 20:08:53.753  INFO 13868 --- [http-nio-8081-exec-1] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getUserById() with result = <200 OK OK,UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=true, trustScore=85),[]>. Execution time: 476 ms
+2026-06-21 20:08:53.793 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.controller.UserController.getUserById() with argument[s] = [12]
+2026-06-21 20:08:53.796 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.getUserById() with argument[s] = [12]
+2026-06-21 20:08:53.806  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.getUserById() with result = Optional[User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=2026-06-21T20:08:53.538, trustScore=85)]. Execution time: 10 ms
+2026-06-21 20:08:53.808 DEBUG 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Enter: com.freelencerhub.user.service.UserService.createUser() with argument[s] = [User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=2026-06-21T20:08:53.807, trustScore=85)]
+2026-06-21 20:08:53.822  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.service.UserService.createUser() with result = User(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, lastActive=2026-06-21T20:08:53.807, trustScore=85). Execution time: 14 ms
+2026-06-21 20:08:53.823  INFO 13868 --- [http-nio-8081-exec-3] c.f.common.logging.LoggingAspect         : Exit: com.freelencerhub.user.controller.UserController.getUserById() with result = <200 OK OK,UserDTO(id=12, name=Aishwarya, email=aishu11@gmail.com, role=FREELANCER, online=true, trustScore=85),[]>. Execution time: 27 ms
+2026-06-21 20:10:48.253  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 20:15:48.263  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 20:20:48.277  INFO 13868 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 21:46:45.512  INFO 20488 --- [main] c.f.user.UserServiceApplication          : Starting UserServiceApplication using Java 1.8.0_482 on DESKTOP-ED7SHVR with PID 20488 (C:\Users\HP\FREELENCERHUB\user-service\target\classes started by Akshata in C:\Users\HP\FREELENCERHUB\user-service)
+2026-06-21 21:46:45.520 DEBUG 20488 --- [main] c.f.user.UserServiceApplication          : Running with Spring Boot v2.7.18, Spring v5.3.31
+2026-06-21 21:46:45.522  INFO 20488 --- [main] c.f.user.UserServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-06-21 21:46:51.415  INFO 20488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-21 21:46:53.107  INFO 20488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1551 ms. Found 1 JPA repository interfaces.
+2026-06-21 21:46:54.756  INFO 20488 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e2e0ddd1-c4d9-3b5a-b207-110f89c19a56
+2026-06-21 21:46:58.617  INFO 20488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2026-06-21 21:46:58.649  INFO 20488 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-21 21:46:58.650  INFO 20488 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-06-21 21:46:59.105  INFO 20488 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-21 21:46:59.107  INFO 20488 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 13361 ms
+2026-06-21 21:47:00.512  INFO 20488 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-21 21:47:00.923  INFO 20488 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-06-21 21:47:01.950  INFO 20488 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-06-21 21:47:02.593  INFO 20488 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-21 21:47:03.309  INFO 20488 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-21 21:47:03.387  INFO 20488 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2026-06-21 21:47:09.881  INFO 20488 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-06-21 21:47:09.962  INFO 20488 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-21 21:47:12.676  WARN 20488 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-21 21:47:19.410  INFO 20488 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-06-21 21:47:19.802  WARN 20488 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-21 21:47:19.830  INFO 20488 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-06-21 21:47:20.379  INFO 20488 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-06-21 21:47:20.827  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-06-21 21:47:20.859  INFO 20488 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 21:47:20.963  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-06-21 21:47:20.964  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-06-21 21:47:20.964  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-06-21 21:47:20.965  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-06-21 21:47:20.965  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-06-21 21:47:20.966  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-06-21 21:47:20.967  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-06-21 21:47:22.699  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-06-21 21:47:22.710  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-06-21 21:47:22.727  INFO 20488 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-21 21:47:22.760  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1782058642748 with initial instances count: 1
+2026-06-21 21:47:22.792  INFO 20488 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2026-06-21 21:47:22.801  INFO 20488 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1782058642800, current=UP, previous=STARTING]
+2026-06-21 21:47:22.815  INFO 20488 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081: registering service...
+2026-06-21 21:47:22.880  INFO 20488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2026-06-21 21:47:22.882  INFO 20488 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2026-06-21 21:47:22.980  INFO 20488 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/DESKTOP-ED7SHVR:user-service:8081 - registration status: 204
+2026-06-21 21:47:23.776  INFO 20488 --- [main] c.f.user.UserServiceApplication          : Started UserServiceApplication in 45.873 seconds (JVM running for 53.01)
+2026-06-21 21:47:24.391  INFO 20488 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-21 21:47:24.392  INFO 20488 --- [RMI TCP Connection(11)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-21 21:47:24.396  INFO 20488 --- [RMI TCP Connection(11)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-06-21 21:52:23.336  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 21:57:23.367  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:02:23.388  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:07:23.407  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:12:23.432  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:17:23.453  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:22:23.486  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:27:23.525  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-21 22:32:23.544  INFO 20488 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

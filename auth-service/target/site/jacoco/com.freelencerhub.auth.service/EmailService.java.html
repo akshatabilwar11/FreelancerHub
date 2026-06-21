@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmailService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">auth-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.auth.service</a> &gt; <span class="el_source">EmailService.java</span></div><h1>EmailService.java</h1><pre class="source lang-java linenums">package com.freelencerhub.auth.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
+@Service
+public class EmailService {
+
+    private final JavaMailSender mailSender;
+
+    @Autowired
+<span class="fc" id="L18">    public EmailService(JavaMailSender mailSender) {</span>
+<span class="fc" id="L19">        this.mailSender = mailSender;</span>
+<span class="fc" id="L20">    }</span>
+
+    public void sendOtpEmail(String toEmail, String otp) {
+        try {
+<span class="fc" id="L24">            MimeMessage message = mailSender.createMimeMessage();</span>
+<span class="fc" id="L25">            MimeMessageHelper helper = new MimeMessageHelper(message, true, &quot;UTF-8&quot;);</span>
+
+<span class="fc" id="L27">            helper.setTo(toEmail);</span>
+<span class="fc" id="L28">            helper.setSubject(&quot;Password Reset OTP - FreelencerHub&quot;);</span>
+
+<span class="fc" id="L30">            String htmlMsg = &quot;&lt;html&gt;&quot; +</span>
+                    &quot;&lt;body style='font-family: Arial, sans-serif; color: #333; line-height: 1.6;'&gt;&quot; +
+                    &quot;&lt;div style='max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;'&gt;&quot; +
+                    &quot;&lt;img src='cid:banner' style='width: 100%; height: auto; display: block;' /&gt;&quot; +
+                    &quot;&lt;div style='padding: 20px;'&gt;&quot; +
+                    &quot;&lt;h2 style='color: #2c3e50;'&gt;Password Reset OTP&lt;/h2&gt;&quot; +
+                    &quot;&lt;p&gt;Hello,&lt;/p&gt;&quot; +
+                    &quot;&lt;p&gt;We received a request to reset your password for your &lt;strong&gt;FreelencerHub&lt;/strong&gt; account.&lt;/p&gt;&quot; +
+                    &quot;&lt;div style='background-color: #f4f7f6; padding: 15px; border-radius: 5px; text-align: center; margin: 20px 0;'&gt;&quot; +
+                    &quot;&lt;span style='font-size: 24px; font-weight: bold; letter-spacing: 5px; color: #3498db;'&gt;&quot; + otp + &quot;&lt;/span&gt;&quot; +
+                    &quot;&lt;/div&gt;&quot; +
+                    &quot;&lt;p&gt;This OTP is valid for &lt;strong&gt;10 minutes&lt;/strong&gt;.&lt;/p&gt;&quot; +
+                    &quot;&lt;p&gt;If you did not request a password reset, please ignore this email or contact support if you have concerns.&lt;/p&gt;&quot; +
+                    &quot;&lt;hr style='border: 0; border-top: 1px solid #eee; margin: 20px 0;' /&gt;&quot; +
+                    &quot;&lt;p style='font-size: 12px; color: #777;'&gt;Best regards,&lt;br/&gt;The FreelencerHub Team&lt;/p&gt;&quot; +
+                    &quot;&lt;/div&gt;&quot; +
+                    &quot;&lt;/div&gt;&quot; +
+                    &quot;&lt;/body&gt;&quot; +
+                    &quot;&lt;/html&gt;&quot;;
+
+<span class="fc" id="L50">            helper.setText(htmlMsg, true);</span>
+
+            // Add the inline image
+<span class="fc" id="L53">            helper.addInline(&quot;banner&quot;, new ClassPathResource(&quot;static/images/email_banner.png&quot;));</span>
+
+<span class="fc" id="L55">            mailSender.send(message);</span>
+<span class="nc" id="L56">        } catch (MessagingException e) {</span>
+<span class="nc" id="L57">            throw new RuntimeException(&quot;Failed to send email&quot;, e);</span>
+<span class="fc" id="L58">        }</span>
+<span class="fc" id="L59">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

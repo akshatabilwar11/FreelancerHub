@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PaymentService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">payment-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.payment.service</a> &gt; <span class="el_source">PaymentService.java</span></div><h1>PaymentService.java</h1><pre class="source lang-java linenums">package com.freelencerhub.payment.service;
+
+import com.freelencerhub.payment.entity.Payment;
+import com.freelencerhub.payment.repository.PaymentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class PaymentService {
+
+    private final PaymentRepository paymentRepository;
+
+    @Autowired
+<span class="fc" id="L16">    public PaymentService(PaymentRepository paymentRepository) {</span>
+<span class="fc" id="L17">        this.paymentRepository = paymentRepository;</span>
+<span class="fc" id="L18">    }</span>
+
+    public List&lt;Payment&gt; getAllPayments() {
+<span class="fc" id="L21">        return paymentRepository.findAll();</span>
+    }
+
+    public Payment processPayment(Payment payment) {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (payment.getAmount() &lt;= 0) {</span>
+<span class="fc" id="L26">            payment.setStatus(&quot;FAILED&quot;);</span>
+<span class="fc" id="L27">            return paymentRepository.save(payment);</span>
+        }
+
+        // Initially lock funds in Escrow
+<span class="fc" id="L31">        payment.setStatus(&quot;ESCROWED&quot;);</span>
+<span class="fc" id="L32">        payment.setTransactionId(&quot;TXN-ESC-&quot; + System.currentTimeMillis());</span>
+        
+<span class="fc" id="L34">        return paymentRepository.save(payment);</span>
+    }
+
+    public Payment releasePayment(Long paymentId) {
+<span class="fc" id="L38">        Payment payment = paymentRepository.findById(paymentId)</span>
+<span class="fc" id="L39">                .orElseThrow(() -&gt; new RuntimeException(&quot;Payment not found&quot;));</span>
+        
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (&quot;ESCROWED&quot;.equals(payment.getStatus())) {</span>
+<span class="fc" id="L42">            payment.setStatus(&quot;COMPLETED&quot;);</span>
+<span class="fc" id="L43">            payment.setTransactionId(&quot;TXN-REL-&quot; + System.currentTimeMillis());</span>
+<span class="fc" id="L44">            return paymentRepository.save(payment);</span>
+        }
+<span class="fc" id="L46">        return payment;</span>
+    }
+
+    public List&lt;Payment&gt; getPaymentsByProject(Long projectId) {
+<span class="fc" id="L50">        return paymentRepository.findByProjectId(projectId);</span>
+    }
+
+    public Double getTotalEarnings(Long freelancerId) {
+<span class="fc" id="L54">        Double earnings = paymentRepository.getTotalEarningsByFreelancer(freelancerId);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        return earnings != null ? earnings : 0.0;</span>
+    }
+
+    public Double getTotalSpent(List&lt;Long&gt; projectIds) {
+<span class="fc bfc" id="L59" title="All 4 branches covered.">        if (projectIds == null || projectIds.isEmpty()) return 0.0;</span>
+<span class="fc" id="L60">        Double spent = paymentRepository.getTotalSpentByProjects(projectIds);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        return spent != null ? spent : 0.0;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

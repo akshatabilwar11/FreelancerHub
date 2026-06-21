@@ -1,0 +1,33 @@
+package com.freelencerhub.gateway.util;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import java.security.Key;
+
+@Component
+public class JwtUtil {
+
+    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+
+    public void validateToken(final String token) {
+        Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);
+    }
+
+    public String getRoleFromToken(String token) {
+        Object roles = Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody().get("roles");
+        if (roles instanceof java.util.List) {
+            java.util.List<?> rolesList = (java.util.List<?>) roles;
+            return rolesList.isEmpty() ? null : rolesList.get(0).toString();
+        }
+        return roles != null ? roles.toString() : null;
+    }
+
+    private Key getSignKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+}

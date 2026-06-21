@@ -1,0 +1,228 @@
+.projects-page {
+  padding-bottom: 4rem;
+}
+
+/* Hero */
+.projects-hero {
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+  border-bottom: 1px solid var(--border-color);
+  padding: 4rem 0 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.projects-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.projects-hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Body */
+.projects-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Filters */
+.filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  flex-wrap: wrap;
+}
+
+.filter-search,
+.filter-budget {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.filter-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  padding: 0.5rem 0;
+}
+
+.filter-input::placeholder { color: var(--text-secondary); opacity: 0.6; }
+
+.filter-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding-left: 0.5rem;
+  border-left: 1px solid var(--border-color);
+}
+
+/* Grid */
+.pub-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Project card */
+.pub-project-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transition);
+}
+
+.pub-project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  background: white;
+}
+
+.pub-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pub-card-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(79, 70, 229, 0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+}
+
+.pub-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pub-badge {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-color);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.delete-badge-btn {
+  background: #fee2e2;
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-badge-btn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.pub-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.pub-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.pub-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.pub-budget,
+.pub-client,
+.pub-date {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.pub-budget {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.pub-client {
+  color: var(--text-secondary);
+}
+
+.pub-date {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  margin-left: auto;
+}
+
+.pub-apply-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Loading / empty */
+.projects-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  padding: 3rem 0;
+  font-size: 0.95rem;
+}
+
+.projects-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .projects-hero-title { font-size: 2rem; }
+  .filters-bar { flex-direction: column; align-items: stretch; }
+  .filter-count { border-left: none; }
+}

@@ -1,0 +1,8 @@
+com\freelencerhub\user\controller\UserController.class
+com\freelencerhub\user\service\UserService.class
+com\freelencerhub\user\entity\User.class
+com\freelencerhub\user\controller\ChatController.class
+com\freelencerhub\user\dto\UserDTO.class
+com\freelencerhub\user\config\SwaggerConfig.class
+com\freelencerhub\user\UserServiceApplication.class
+com\freelencerhub\user\repository\UserRepository.class

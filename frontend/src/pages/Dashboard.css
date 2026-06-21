@@ -1,0 +1,343 @@
+/* Dashboard Base Layout */
+.dashboard-container {
+  min-height: 100vh;
+  background: var(--bg-color);
+  padding: 0;
+}
+
+/* Hero Sections */
+.dashboard-hero {
+  padding: 4rem 2rem;
+  border-radius: 0 0 40px 40px;
+  color: white;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* Role Specific Heroes */
+.admin-hero {
+  background-image: url('/assets/images/bg2.png');
+  background-color: #1e293b;
+}
+
+.client-hero {
+  background-image: url('/assets/images/real2.png');
+  background-color: #4338ca;
+}
+
+.freelancer-hero {
+  background-image: url('/assets/images/real1.png');
+  background-color: #0d9488;
+}
+
+/* Stats Widgets */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 3;
+}
+
+.stat-widget {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-widget:hover {
+  transform: translateY(-5px);
+}
+
+.stat-widget-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-widget-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.stat-widget-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1e293b;
+}
+
+/* Tables */
+.user-table-container {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-top: 1.5rem;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th {
+  background: #f8fafc;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.user-table td {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.role-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.role-admin { background: #fee2e2; color: #ef4444; }
+.role-client { background: #e0e7ff; color: #4338ca; }
+.role-freelancer { background: #dcfce7; color: #16a34a; }
+
+/* Cards Grid */
+.project-grid-dash {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-card-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 1.5rem;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.project-card-glass:hover {
+  background: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.pcg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.pcg-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.pcm-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.pcm-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.pcm-budget {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.pcm-date {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.pcm-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.delete-btn-dash {
+  background: #fef2f2;
+  color: #ef4444;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn-dash:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.pcg-budget {
+  color: #10b981;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.pcg-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.pcg-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pcg-tag {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Sidebar Sections */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.profile-completion-card {
+  background: linear-gradient(135deg, #4338ca 0%, #312e81 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 100px;
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #10b981;
+  border-radius: 100px;
+}
+
+.skills-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  background: #f1f5f9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* Forms */
+.create-form {
+  margin: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-input-dash {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: 0.5rem;
+  font-family: inherit;
+}
+
+.form-input-dash:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

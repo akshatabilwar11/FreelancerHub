@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.freelencerhub.project.controller.ProjectControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.954 s -- in com.freelencerhub.project.controller.ProjectControllerTest

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">user-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.user.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package com.freelencerhub.user.controller;
+
+import com.freelencerhub.user.dto.UserDTO;
+import com.freelencerhub.user.entity.User;
+import com.freelencerhub.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping(&quot;/users&quot;)
+public class UserController {
+
+    private final UserService userService;
+
+    @Autowired
+<span class="fc" id="L22">    public UserController(UserService userService) {</span>
+<span class="fc" id="L23">        this.userService = userService;</span>
+<span class="fc" id="L24">    }</span>
+
+    @GetMapping
+    public List&lt;UserDTO&gt; getAllUsers() {
+<span class="fc" id="L28">        return userService.getAllUsers().stream()</span>
+<span class="fc" id="L29">                .map(this::mapToDTO)</span>
+<span class="fc" id="L30">                .collect(Collectors.toList());</span>
+    }
+
+    @PostMapping
+    public UserDTO createUser(@Valid @RequestBody User user) {
+<span class="fc" id="L35">        return mapToDTO(userService.createUser(user));</span>
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;UserDTO&gt; getUserById(@PathVariable Long id) {
+<span class="fc" id="L40">        return userService.getUserById(id)</span>
+<span class="fc" id="L41">                .map(user -&gt; {</span>
+<span class="fc" id="L42">                    user.setLastActive(LocalDateTime.now());</span>
+<span class="fc" id="L43">                    userService.createUser(user); // Save updated lastActive</span>
+<span class="fc" id="L44">                    return ResponseEntity.ok(mapToDTO(user));</span>
+                })
+<span class="fc" id="L46">                .orElse(ResponseEntity.notFound().build());</span>
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable Long id) {
+<span class="fc" id="L51">        userService.deleteUser(id);</span>
+<span class="fc" id="L52">        return ResponseEntity.noContent().build();</span>
+    }
+
+    private UserDTO mapToDTO(User user) {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        boolean isOnline = user.getLastActive() != null &amp;&amp; </span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">                           user.getLastActive().isAfter(LocalDateTime.now().minusMinutes(5));</span>
+<span class="fc" id="L58">        return new UserDTO(user.getId(), user.getName(), user.getEmail(), user.getRole(), isOnline, user.getTrustScore());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

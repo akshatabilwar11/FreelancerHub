@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NotificationService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">notification-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.notification.service</a> &gt; <span class="el_source">NotificationService.java</span></div><h1>NotificationService.java</h1><pre class="source lang-java linenums">package com.freelencerhub.notification.service;
+
+import com.freelencerhub.notification.dto.NotificationDTO;
+import com.freelencerhub.notification.entity.Notification;
+import com.freelencerhub.notification.repository.NotificationRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+<span class="fc" id="L15">@Slf4j</span>
+public class NotificationService {
+
+    private final NotificationRepository notificationRepository;
+
+    @Autowired
+<span class="fc" id="L21">    public NotificationService(NotificationRepository notificationRepository) {</span>
+<span class="fc" id="L22">        this.notificationRepository = notificationRepository;</span>
+<span class="fc" id="L23">    }</span>
+
+    public List&lt;NotificationDTO&gt; getAllNotifications() {
+<span class="fc" id="L26">        return notificationRepository.findAll().stream()</span>
+<span class="fc" id="L27">                .map(this::mapToDTO)</span>
+<span class="fc" id="L28">                .collect(Collectors.toList());</span>
+    }
+
+    public List&lt;NotificationDTO&gt; getNotificationsByUser(Long userId) {
+<span class="fc" id="L32">        return notificationRepository.findByUserId(userId).stream()</span>
+<span class="fc" id="L33">                .map(this::mapToDTO)</span>
+<span class="fc" id="L34">                .collect(Collectors.toList());</span>
+    }
+
+    public List&lt;NotificationDTO&gt; getNotificationsBySender(Long senderId) {
+<span class="fc" id="L38">        return notificationRepository.findBySenderId(senderId).stream()</span>
+<span class="fc" id="L39">                .map(this::mapToDTO)</span>
+<span class="fc" id="L40">                .collect(Collectors.toList());</span>
+    }
+
+    @Async
+    public void processNotificationAsync(Notification notification) {
+<span class="fc" id="L45">        log.info(&quot;Processing notification asynchronously from sender: {} for user: {}&quot;, notification.getSenderId(), notification.getUserId());</span>
+<span class="fc" id="L46">        notification.setRead(false);</span>
+<span class="fc" id="L47">        notificationRepository.save(notification);</span>
+<span class="fc" id="L48">        log.info(&quot;Notification saved successfully.&quot;);</span>
+<span class="fc" id="L49">    }</span>
+
+    public void markAsRead(Long id) {
+<span class="fc" id="L52">        notificationRepository.findById(id).ifPresent(n -&gt; {</span>
+<span class="fc" id="L53">            n.setRead(true);</span>
+<span class="fc" id="L54">            notificationRepository.save(n);</span>
+<span class="fc" id="L55">        });</span>
+<span class="fc" id="L56">    }</span>
+
+    private NotificationDTO mapToDTO(Notification n) {
+<span class="fc" id="L59">        return new NotificationDTO(n.getId(), n.getUserId(), n.getSenderId(), n.getMessage(), n.isRead(), n.getCreatedAt());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

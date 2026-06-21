@@ -1,0 +1,9 @@
+com\freelencerhub\user\controller\UserControllerTest.class
+com\freelencerhub\user\config\SwaggerConfigTest.class
+com\freelencerhub\user\entity\UserEntityTest.class
+com\freelencerhub\user\repository\UserRepositoryTest.class
+com\freelencerhub\user\UserServiceApplicationTests.class
+com\freelencerhub\user\dto\UserDTOTest.class
+com\freelencerhub\user\entity\UserTest.class
+com\freelencerhub\user\UserServiceApplicationTest.class
+com\freelencerhub\user\service\UserServiceTest.class

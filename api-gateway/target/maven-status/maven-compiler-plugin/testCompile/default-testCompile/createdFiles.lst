@@ -1,0 +1,3 @@
+com\freelencerhub\gateway\filter\RouteValidatorTest.class
+com\freelencerhub\gateway\util\JwtUtilTest.class
+com\freelencerhub\gateway\ApiGatewayApplicationTest.class

@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+auth-service,com.freelencerhub.auth.security,CustomWebSecurityConfig,0,69,0,0,0,18,0,4,0,4
+auth-service,com.freelencerhub.auth.security,JwtUtil,4,99,1,1,0,22,2,8,1,8
+auth-service,com.freelencerhub.auth.security,UserDetailsServiceImpl,0,55,0,0,0,9,0,4,0,4
+auth-service,com.freelencerhub.auth.service,EmailService,7,51,0,0,2,13,0,2,0,2
+auth-service,com.freelencerhub.auth.controller,AuthController,13,721,8,34,2,152,8,31,0,18

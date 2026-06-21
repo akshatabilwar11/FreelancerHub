@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProjectController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.project.controller</a> &gt; <span class="el_source">ProjectController.java</span></div><h1>ProjectController.java</h1><pre class="source lang-java linenums">package com.freelencerhub.project.controller;
+
+import com.freelencerhub.project.dto.ProjectDTO;
+import com.freelencerhub.project.entity.Project;
+import com.freelencerhub.project.service.ProjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping(&quot;/projects&quot;)
+public class ProjectController {
+
+    private final ProjectService projectService;
+    @Autowired
+<span class="fc" id="L23">    public ProjectController(ProjectService projectService) {</span>
+<span class="fc" id="L24">        this.projectService = projectService;</span>
+<span class="fc" id="L25">    }</span>
+
+    @GetMapping
+    public Page&lt;ProjectDTO&gt; getAllProjects(Pageable pageable) {
+<span class="fc" id="L29">        return projectService.getAllProjects(pageable).map(this::mapToDTO);</span>
+    }
+
+    @PostMapping
+    public ProjectDTO createProject(@Valid @RequestBody Project project, @RequestHeader(value = &quot;X-User-Role&quot;, required = false) String role) {
+<span class="pc bpc" id="L34" title="4 of 6 branches missed.">        if (role != null &amp;&amp; !role.equals(&quot;CLIENT&quot;) &amp;&amp; !role.equals(&quot;ROLE_CLIENT&quot;)) {</span>
+<span class="nc" id="L35">            throw new RuntimeException(&quot;Only Clients can create projects&quot;);</span>
+        }
+<span class="fc" id="L37">        Project savedProject = projectService.createProject(project);</span>
+<span class="fc" id="L38">        return mapToDTO(savedProject);</span>
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ProjectDTO&gt; getProjectById(@PathVariable Long id) {
+<span class="fc" id="L43">        return projectService.getProjectById(id)</span>
+<span class="fc" id="L44">                .map(project -&gt; ResponseEntity.ok(mapToDTO(project)))</span>
+<span class="fc" id="L45">                .orElse(ResponseEntity.notFound().build());</span>
+    }
+
+    @GetMapping(&quot;/client/{clientId}&quot;)
+    public List&lt;ProjectDTO&gt; getProjectsByClient(@PathVariable Long clientId) {
+<span class="fc" id="L50">        return projectService.getProjectsByClient(clientId).stream()</span>
+<span class="fc" id="L51">                .map(this::mapToDTO)</span>
+<span class="fc" id="L52">                .collect(Collectors.toList());</span>
+    }
+
+    @GetMapping(&quot;/client/{clientId}/active-hires&quot;)
+    public long getActiveHiresCount(@PathVariable Long clientId) {
+<span class="nc" id="L57">        return projectService.getActiveHiresCount(clientId);</span>
+    }
+
+    @PutMapping(&quot;/{id}/activate&quot;)
+    public ResponseEntity&lt;ProjectDTO&gt; activateProject(@PathVariable Long id) {
+<span class="fc" id="L62">        return ResponseEntity.ok(mapToDTO(projectService.activateProject(id)));</span>
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteProject(@PathVariable Long id) {
+<span class="nc" id="L67">        projectService.deleteProject(id);</span>
+<span class="nc" id="L68">        return ResponseEntity.noContent().build();</span>
+    }
+
+    @GetMapping(&quot;/freelancer/{id}/availability&quot;)
+    public ResponseEntity&lt;String&gt; getAvailability(@PathVariable Long id) {
+<span class="nc" id="L73">        return ResponseEntity.ok(projectService.getFreelancerAvailability(id));</span>
+    }
+
+    private ProjectDTO mapToDTO(Project p) {
+<span class="fc" id="L77">        ProjectDTO dto = new ProjectDTO();</span>
+<span class="fc" id="L78">        dto.setId(p.getId());</span>
+<span class="fc" id="L79">        dto.setTitle(p.getTitle());</span>
+<span class="fc" id="L80">        dto.setDescription(p.getDescription());</span>
+<span class="fc" id="L81">        dto.setBudget(p.getBudget());</span>
+<span class="fc" id="L82">        dto.setClientId(p.getClientId());</span>
+<span class="fc" id="L83">        dto.setFreelancerId(p.getFreelancerId());</span>
+<span class="fc" id="L84">        dto.setStatus(p.getStatus());</span>
+<span class="fc" id="L85">        dto.setCreatedAt(p.getCreatedAt());</span>
+<span class="fc" id="L86">        return dto;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

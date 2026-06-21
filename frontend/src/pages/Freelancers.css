@@ -1,0 +1,134 @@
+.freelancers-page {
+  padding-bottom: 4rem;
+}
+
+.freelancers-hero {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(79, 70, 229, 0.1) 100%);
+  border-bottom: 1px solid var(--border-color);
+  padding: 4rem 0 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.freelancers-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.freelancers-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.freelancers-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.freelancers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.freelancer-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: var(--transition);
+}
+
+.freelancer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.freelancer-card-header {
+  display: flex;
+  gap: 1rem;
+}
+
+.freelancer-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.freelancer-main-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.freelancer-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.freelancer-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #FBBF24;
+}
+
+.freelancer-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.freelancer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.freelancer-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.freelancer-price span {
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 1rem;
+}
+
+.freelancer-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-full {
+  flex: 1;
+}
+
+.btn-icon {
+  padding: 0.75rem;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChatController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">user-service</a> &gt; <a href="index.source.html" class="el_package">com.freelencerhub.user.controller</a> &gt; <span class="el_source">ChatController.java</span></div><h1>ChatController.java</h1><pre class="source lang-java linenums">package com.freelencerhub.user.controller;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+@RequestMapping(&quot;/chat&quot;)
+@CrossOrigin(origins = &quot;*&quot;)
+<span class="fc" id="L10">public class ChatController {</span>
+
+    @PostMapping(&quot;/query&quot;)
+    public Map&lt;String, String&gt; handleQuery(@RequestBody Map&lt;String, String&gt; request) {
+<span class="fc" id="L14">        String query = request.get(&quot;query&quot;).toLowerCase();</span>
+<span class="fc" id="L15">        Map&lt;String, String&gt; response = new HashMap&lt;&gt;();</span>
+
+<span class="pc bpc" id="L17" title="1 of 4 branches missed.">        if (query.contains(&quot;how to join&quot;) || query.contains(&quot;register&quot;)) {</span>
+<span class="fc" id="L18">            response.put(&quot;reply&quot;, &quot;You can join FreelencerHub by clicking the 'Register' button on the top right. Choose your role as either a Client or a Freelancer!&quot;);</span>
+<span class="pc bpc" id="L19" title="1 of 4 branches missed.">        } else if (query.contains(&quot;payment&quot;) || query.contains(&quot;pay&quot;)) {</span>
+<span class="fc" id="L20">            response.put(&quot;reply&quot;, &quot;We support secure payments via credit cards and digital wallets. You can manage your transactions in the 'Payments' section of your dashboard.&quot;);</span>
+<span class="pc bpc" id="L21" title="1 of 4 branches missed.">        } else if (query.contains(&quot;forgot password&quot;) || query.contains(&quot;reset&quot;)) {</span>
+<span class="fc" id="L22">            response.put(&quot;reply&quot;, &quot;If you've forgotten your password, click on 'Forgot Password' on the login page. We will send an OTP to your registered email.&quot;);</span>
+<span class="pc bpc" id="L23" title="1 of 4 branches missed.">        } else if (query.contains(&quot;hello&quot;) || query.contains(&quot;hi&quot;)) {</span>
+<span class="fc" id="L24">            response.put(&quot;reply&quot;, &quot;Hello! I am your FreelencerHub AI Assistant. How can I help you today?&quot;);</span>
+        } else {
+<span class="fc" id="L26">            response.put(&quot;reply&quot;, &quot;That's a great question! For specific inquiries, please contact our support team at support@freelencerhub.com or check our FAQ page.&quot;);</span>
+        }
+
+<span class="fc" id="L29">        return response;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

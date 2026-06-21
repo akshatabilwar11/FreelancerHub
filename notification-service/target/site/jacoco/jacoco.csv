@@ -1,0 +1,3 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+notification-service,com.freelencerhub.notification.service,NotificationService,0,97,0,0,0,24,0,9,0,9
+notification-service,com.freelencerhub.notification.controller,NotificationController,12,22,0,0,3,7,2,4,2,4

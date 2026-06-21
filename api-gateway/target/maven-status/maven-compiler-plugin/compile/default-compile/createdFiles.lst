@@ -1,0 +1,5 @@
+com\freelencerhub\gateway\config\SwaggerConfig.class
+com\freelencerhub\gateway\ApiGatewayApplication.class
+com\freelencerhub\gateway\filter\RouteValidator.class
+com\freelencerhub\gateway\filter\AuthenticationFilter.class
+com\freelencerhub\gateway\util\JwtUtil.class
